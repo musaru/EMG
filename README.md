@@ -36,3 +36,8 @@ input_flat = GlobalAveragePooling1D()(input)
 
 
 #Step4: Performance
+
+
+#Springer Paper Title: Effective features extraction and selection for hand gesture recognition using sEMG signal
+
+Springer_EMG_HGR
