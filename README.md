@@ -19,6 +19,17 @@ https://ninapro.hevs.ch/
 
 #Step2 : Feature Extraction with Three Branch
 
+m1 = LSTM(64, return_sequences=True)(input)
+tcn1 = TCN(nb_filters=64, nb_stacks=1, kernel_size=3, return_sequences=True)(m1)
+m2 = Conv1D(32, 3)(input)
+tcn2 = TCN(nb_filters=64, nb_stacks=1, kernel_size=3, return_sequences=True)(m2)
+tcn3 = TCN(nb_filters=64, nb_stacks=1, kernel_size=3, return_sequences=True)(input)
+# Flatten the sequences before concatenating
+tcn1_flat = GlobalAveragePooling1D()(tcn1)
+tcn2_flat = GlobalAveragePooling1D()(tcn2)
+tcn3_flat = GlobalAveragePooling1D()(tcn3)
+input_flat = GlobalAveragePooling1D()(input)
+
 #Step3: Concatenation
 
 #Step4: Classification
