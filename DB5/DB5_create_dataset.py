@@ -6,21 +6,21 @@ import os
 import sys
 import matplotlib.pyplot as plt
 os.getcwd()
-os.chdir('F:/EMG_All/Project_Data_paper/NinaProDB/')
+# os.chdir('/home/sota/EMGcode/EMG_experiment/DB5')
 print(os.getcwd())
 #  *******************DB1 **********************
 '''S1_A1_E1, S1_A1_E2,   S1_A1_E3    S2_A1_E1, S2_A1_E2,  S2_A1_E3   EMG= 101014*10,   Gloves: 101014*22'''
 
-folder_s = 'DB5'
-folder_t = 'Musa_NinaPro_Project/ProcessedData/DB5'
+folder_s = '/home/sota/EMGcode/EMG_experiment/DB5'
+folder_t = '/home/sota/EMGcode/EMG_experiment/DB5_pre'
 #subjects_num = 41 #missing number 38
 subjects_num = 11 #missing number 38
-rep_index = 12 #10th column where contains the repetition column value 
-sti_index = 13 # 11 the column where contains the restimulus colum value
-gro_index = 14 # create some groupin dex in 12 th column 
+rep_index = 16 #10th column where contains the repetition column value 
+sti_index = 17 # 11 the column where contains the restimulus colum value
+gro_index = 18 # create some groupin dex in 12 th column 
 if not os.path.exists(folder_t):
     os.makedirs(folder_t)
-for s in range(1,subjects_num):
+for s in range(10,subjects_num):
 	print('Subject:',s)
 	for e in range(1,4):
 		print("Excercise:",e)
@@ -54,7 +54,7 @@ for s in range(1,subjects_num):
 		data[gro_index] = data[sti_index].replace(to_replace=0, method='bfill')  # fill 0 backword cell with forward value  using (1-10) 
 		regroup = data[gro_index].values.reshape((-1,1))   #move restimulse value into regroup index 12    shape: 222194*1
 		
-		emg = data.loc[:,0:11].values   #0-9 contains the EMG value shape  222194*10 
+		emg = data.loc[:,0:15].values   #0-9 contains the EMG value shape  222194*10 
 		#print(emg)
 		print(data.shape)
 		restimulus = data[sti_index].values.reshape((-1,1))	 # shape: 222194*1
@@ -120,4 +120,3 @@ for s in range(1,subjects_num):
 				#break
 		#break
 	#break
-
