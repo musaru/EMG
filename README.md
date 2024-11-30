@@ -13,6 +13,7 @@ https://ninapro.hevs.ch/
 
 # Step1 : Preprocessing Code and Explaination
 ##Preprocessing for DB1
+## EMG Experiment Contained Code for DB2
 ## Preprocessing For DB2
 
 ## Preprocessing For DB9
